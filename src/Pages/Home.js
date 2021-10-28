@@ -4,13 +4,17 @@ import MainPageLayout from '../Components/MainPageLayout'
 import ShowGrid from '../Components/show/ShowGrid'
 import { getapi } from '../misc/config'
 
+
 const Home = () => {
+
+    
     const [input, setInput] = useState("")
     const [results, setResults] = useState(null)
     const [searchOption, setSearchOption] = useState("shows")
     console.log(results);
     const isShowSearch = searchOption === 'shows'
 
+    
     const onInputChange = (ev) => {
         setInput(ev.target.value)
     }
