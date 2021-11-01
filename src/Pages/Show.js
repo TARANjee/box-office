@@ -1,5 +1,9 @@
 import React, { useReducer, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
+import Cast from '../Components/show/Cast';
+import Details from '../Components/show/Details';
+import Seasons from '../Components/show/Seasons';
+import ShowMainData from '../Components/show/ShowMainData';
 import { getapi } from '../misc/config';
 
 
@@ -58,10 +62,7 @@ const Show = () => {
 
 
     }, [id])
-    console.log('show', show);
-    console.log('isLoading', isLoading);
-    console.log('error', error);
-
+    
     if (isLoading) {
         return <div>Data is being Loading</div>
     }
@@ -71,9 +72,24 @@ const Show = () => {
 
     return (
         <div>
-            This is show page
-
-            <h1>{show.name}</h1>
+            <ShowMainData
+                image={show.image}
+                name={show.name}
+                rating={show.rating}
+                summary={show.summary}
+                tags={show.genres} />
+            <div>
+                <h2>Details</h2>
+                <Details status={show.status} network={show.network} premiered={show.premiered} />
+            </div>
+            <div>
+                <h2>Seasons</h2>
+                <Seasons seasons={show._embedded.seasons} />
+            </div>
+            <div>
+                <h2>Cast</h2>
+                <Cast cast={show._embedded.cast} />
+            </div>
         </div>
     )
 }
