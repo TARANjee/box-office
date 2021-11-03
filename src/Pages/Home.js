@@ -11,7 +11,6 @@ const Home = () => {
     const [input, setInput] = useState("")
     const [results, setResults] = useState(null)
     const [searchOption, setSearchOption] = useState("shows")
-    console.log(results);
     const isShowSearch = searchOption === 'shows'
 
     

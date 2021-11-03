@@ -1,4 +1,4 @@
-import { useReducer } from 'react'
+import { useReducer,useEffect } from 'react'
 
 function showReducer(prevState,action)
 {
